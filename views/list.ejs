@@ -1,0 +1,24 @@
+<!-- list.ejs -->
+
+<%- include("head") -%>
+
+<%- include("pageTitle") -%>
+
+  <div class="box">
+    <form class="item" action="/" method="post">
+      <!-- <input type="text" name="newItems" placeholder="New task" autocomplete="off"/> -->
+      <button type="submit" name="newItems" onclick="setTime();">Timestamp</button>
+      <input id="field" type="text" name="field" value="" size="11" />
+    </form>
+
+    <% for (let i=0; i<newListItems.length; i++) { %>
+    <div class="item">
+      <input type="checkbox">
+      <p><%= newListItems[i]  %></p>
+    </div>
+    <% } %>
+  </div>
+  <script src="js/modules.js" charset="utf-8"></script>
+</body>
+
+</html>

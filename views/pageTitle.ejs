@@ -1,0 +1,14 @@
+<!-- pageTitle.ejs -->
+
+<div class="box" id="heading">
+  <p>Timecard</p>
+  <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
+  <p style="color: lightgrey"><%= kindOfDay %></br>
+    <div id="txt" style="color: lightgrey">
+  </p>
+  <% } else { %>
+  <p style="color: darkblue"><%= kindOfDay %></br>
+    <div id="txt" style="color: darkblue"></div>
+  </p>
+  <% } %>
+</div>
