@@ -3,18 +3,20 @@
 //jshint esversion: 6
 const express = require('express');
 const bodyParser = require('body-parser');
+const date = require(__dirname + "/date.js");
 const request = require("request"); // tbc
 const app = express();
+const items = [];
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-var items = [];
-
 app.get("/", function(req, res) {
+  const greet = "hello Bobbi!";
+  const dateNow = date.getDate();
+  const yearFunc = date.getYear();
+
   var today = new Date();
   // https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date?rq=1
   var dateOptions = {
@@ -26,9 +28,9 @@ app.get("/", function(req, res) {
   var day = today.toLocaleDateString("en-US", dateOptions); // 9/17/2016
   var timeStamp = today.toLocaleDateString("en-US", timeOptions); // timestamp
 
-  res.render("list", {
-    kindOfDay: day, newListItems: items
-  });
+
+  res.render("timecard", {greeting: greet, titleDate: dateNow, kindOfDay: day, newListItems: items, yearNow: yearFunc});
+    console.log(greet);
 });
 
 app.post("/", function(req, res) {
@@ -38,6 +40,6 @@ app.post("/", function(req, res) {
   res.redirect("/");
 });
 
-app.listen(process.env.PORT || 3500, function() {
-  console.log('Server is running on "process.env.PORT || 3500".')
+app.listen(process.env.PORT || 3501, function() {
+  console.log('Server is running on "process.env.PORT || 3501".')
 });

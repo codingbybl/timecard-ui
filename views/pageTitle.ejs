@@ -1,14 +1,11 @@
 <!-- pageTitle.ejs -->
 
 <div class="box" id="heading">
-  <p>Timecard</p>
-  <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
-  <p style="color: lightgrey"><%= kindOfDay %></br>
-    <div id="txt" style="color: lightgrey">
-  </p>
-  <% } else { %>
-  <p style="color: darkblue"><%= kindOfDay %></br>
-    <div id="txt" style="color: darkblue"></div>
-  </p>
-  <% } %>
+  <p id="greeting"><%= greeting %></p>
+  <div class="box">
+    <p>timecard</br>
+    <%= titleDate %></br>
+    <iframe src="http://free.timeanddate.com/clock/i74anup6/n256/tluk/tct/pct/ftb/pa0/th1/ta1" frameborder="0" width="88" height="16" allowTransparency="true"></iframe>
+</p>
+  </div>
 </div>
